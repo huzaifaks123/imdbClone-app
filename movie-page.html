@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- start of the head -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- importing CDN for font-awesome svg's and logos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <!-- integrating bootstrap framework inside project -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <!-- importing font styles as required -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- providing a title to our Project  -->
+  <title>IMDBClone</title>
+</head>
+
+<!-- start of the BODY -->
+
+<body>
+  <!-- creating elements of navbar here -->
+  <nav class="navbar p-0 mb-2 mx-auto">
+    <div class="container-fluid p-1 d-flex justify-content-center justify-content-around">
+      <!-- brand button -->
+      <div class="brand-button">
+        <a class="home-link" href="./index.html">
+          <button type="button" class="btn d-flex align-items-center bg-warning px-3 fs-4">IMDb</button>
+        </a>
+      </div>
+      <!-- menu button -->
+      <div class="menu">
+        <button type="button" class="btn d-flex align-items-center text-light px-3 fs-6"><i
+            class="fa fa-bars"></i><span>&nbsp&nbspMenu</span></button>
+      </div>
+      <!-- search bar -->
+      <div class="search-bar bg-light border d-flex pe-2 rounded-2 position-relative">
+        <div class="dropdown border-end border-secondary">
+          <!-- type dropdown -->
+          <button class="btn d-flex align-items-center dropdown-toggle" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            All
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">All</a></li>
+            <li><a class="dropdown-item" href="#">Title</a></li>
+            <li><a class="dropdown-item" href="#">Companies</a></li>
+            <li><a class="dropdown-item" href="#">TV Episodes</a></li>
+            <li><a class="dropdown-item" href="#">Celebs</a></li>
+            <li><a class="dropdown-item" href="#">Keywords</a></li>
+          </ul>
+        </div>
+        <!-- search input -->
+        <form class="d-flex w-100 search-form" role="search">
+          <input id="search-input" class="search-input form-control" type="search" placeholder="Search IMDb"
+            aria-label="Search">
+        </form>
+        <img class=" bg-light" src="./asset/search-img.svg" alt="find" width="20px">
+      </div>
+      <!-- brand button -->
+      <div class="brand-button ">
+        <button class="btn fs-5 d-flex align-items-center text-light">IMDb<span class="text-info">Pro</span></button>
+      </div>
+      <hr>
+      <div class="Watchlist text-light fs-6 d-flex align-items-center"><i class="fa fa-bookmark"></i>&nbsp&nbspWatchlist
+      </div>
+      <div class="sign-in text-light d-flex fs-6 align-items-center">Sign In</div>
+      <div class="dropdown">
+        <!-- dropdown button for language -->
+        <button class="btn btn-black d-flex align-items-center text-light fs-6 dropdown-toggle" type="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          EN
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">EN</a></li>
+          <li><a class="dropdown-item" href="#">HIN</a></li>
+          <li><a class="dropdown-item" href="#">FRE</a></li>
+          <li><a class="dropdown-item" href="#">DU</a></li>
+          <li><a class="dropdown-item" href="#">AR</a></li>
+          <li><a class="dropdown-item" href="#">CHI</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- element to show search resut -->
+    <div id="search-result" class="d-flex search-dropdown z-2 mx-auto position-absolute text-black">
+    </div>
+  </nav>
+
+  <!-- MOST OF THE BELOW CODES ARE STATIC ELEMENTS JUST FOR VISUALISATION PURPOSE -->
+
+  <!-- Hero Section -->
+  <section>
+    <!-- container for hero and aside element -->
+    <div class="container mp-hero px-4">
+      <div class="mp-hero-header">
+        <div class="mp-hero-upper-header">
+          <div class="horizontal-list w-50 fs-6 text-light fw-bold ms-auto">
+            <ul class="d-flex align-items-center justify-content-between">
+              <li>
+                Cast & Crew
+              </li>
+              <li>
+                .
+              </li>
+              <li>
+                User Review
+              </li>
+              <li>
+                .
+              </li>
+              <li>
+                Trivia
+              </li>
+              <li>
+                .
+              </li>
+              <li>
+                FAQ
+              </li>
+              <hr>
+              <li>
+                IMBbPro
+              </li>
+              <hr>
+              <li>
+                All Topics
+              </li>
+              <hr>
+              <li>
+                <i class="fa fa-share"></i>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- movie title -->
+        <div class="mp-hero-main-header text-light d-flex align-items-center justify-content-between">
+          <div class="movie-details fs-1 me-auto">
+            <div id="movie-name" class="movie-name">
+              //////////
+            </div>
+            <div class="movie-span fs-6 d-flex align-items-center justify-content-between">
+              <span id="release-date">////</span><span>.</span><span id="PG">////</span><span>.</span><span
+                id="duration"></span>
+            </div>
+          </div>
+          <!-- review -->
+          <div class="movie-review fs-6 text-secondary ">
+            <div id="review" class="imdb-rating d-flex align-items-center justify-content-center">
+              IMDb RATING
+            </div>
+            <div class="rating d-flex align-items-center justify-content-center">
+              <i class="fa fa-star fs-3 me-2"></i>
+              <div class="rate d-inline-block">
+                <span id="imdb-rating" class="fs-5 text-light"></span>/10
+                <div>
+                  460K
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- rating -->
+          <div class="movie-review fs-6  text-secondary">
+            <div class="imdb-rating d-flex align-items-center  justify-content-center">
+              Your RATING
+            </div>
+            <div class="rating d-flex align-items-center favourite justify-content-center">
+              <img src="./asset/star.svg" class=" text-light me-2" width="30px" alt="favourite">
+              <div class="rate fs-4 d-inline-block">
+                Rate
+              </div>
+            </div>
+          </div>
+          <div class="movie-review fs-6 text-secondary">
+            <div class="imdb-rating d-flex align-items-center justify-content-center">
+              POPULARITY
+            </div>
+            <div class="rating d-flex align-items-center justify-content-center">
+              <i class="fa fa-arrow-trend-down"></i>
+              <div class="rating d-flex align-items-center justify-content-center position-relative">
+                <img src="./asset/trend-down.svg" class="me-2 trend-down" fill="#ff0000" width="25px" alt="favourite">
+                <div class="trend fs-4 d-inline-block ">
+                  <span class="text-light">2</span><i class="fa fa-caret-down fs-6 m-1"></i><span class="fs-5">6</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- creating hero image container -->
+      <div class="mp-hero-images container text-light">
+        <div class="row">
+          <div class="col-md-3 p-0">
+            <!-- portrait card container -->
+            <div class="card-container overflow-hidden d-flex justify-content-between position-relative">
+              <div class="bookmark d-flex align-items-center justify-content-center position-absolute">
+                <i class="fa fa-bookmark fs-1 text-black opacity-50"></i>
+                <span class="add position-absolute fs-2 text-light">+</span>
+              </div>
+              <div class="favourite-card h-100 w-100 d-flex justify-content-around align-items-start overflow-hidden">
+                <img id="portrait-img" width="100%" background="fill" alt="trending-movie">
+              </div>
+            </div>
+          </div>
+          <!-- portrait card container -->
+          <div class="card-container col-md-7 position-relative px-1">
+            <div class=" mp-hero-footer px-4 position-absolute">
+              <div class="content-card d-flex justify-content-around align-items-end">
+                <div class="play-button my-auto">
+                  <i class="fa fa-play fs-3 ms-1"></i>
+                </div>
+                <div class="duration fs-4 text-light my-auto ms-2 ">Play-trailer <span
+                    class="fs-6 fw-normal">4:23</span></div>
+              </div>
+            </div>
+            <div class="landscape-img-container h-100 w-100">
+              <img id="landscape-img" width="100%" alt="">
+            </div>
+          </div>
+
+          <!-- right static element in hero page -->
+          <div class="card-container opacity-50 px-0 img-vid-container d-flex flex-column align-items-fill col-md-2 fs-6 fw-bold">
+            <div class="video mb-1">
+              <i class="fa fa-camera"></i>
+              10 VIDEOS
+            </div>
+            <div class="photos">
+              99+ PHOTOS
+            </div>
+          </div>
+        </div>
+        <!-- row for the plot and different element -->
+        <div class="row">
+          <div class="col-md-8 p-0 ">
+            <div class=" horizontal-list fs-6 text-light fw-normal my-3">
+              <ul class="mp-hero-lists d-flex align-items-center justify-content-between my-auto ms-0 p-0">
+                <li>
+                  Crime
+                </li>
+                <li>
+                  Drama
+                </li>
+                <li>
+                  Thriller
+                </li>
+              </ul>
+            </div>
+            <div id="plot" class="summary">
+            </div>
+            <div class="boundary my-3"></div>
+            <span class="fw-bold">Director &nbsp</span>
+            <span id="director" class="summary">
+            </span>
+            <div class="boundary my-3"></div>
+            <span class="fw-bold">Writers &nbsp</span>
+            <span id="writer" class="summary">
+            </span>
+            <div class="boundary my-3"></div>
+            <span class="fw-bold">Stars &nbsp</span>
+            <span id="stars" class="summary">
+            </span>
+
+
+          </div>
+          <div class="col-md-4">
+
+          </div>
+        </div>
+
+      </div>
+      <div class="mp-hero-details">
+
+      </div>
+    </div>
+  </section>
+
+  <!--                     My Favourite                          -->
+
+  <section id="my-Favourite" class="my-Favourite column-6 container">
+    <!-- heading for favourite -->
+    <div class="second-heading fs-3 text-light fw-bold ms-4 mb-3">
+      My Favourite
+    </div>
+    <!-- elements to show favourite content here -->
+    <div class="row container d-flex flex-nowrap overflow-hidden sec-gap position-relative mx-1">
+      <div id="fav-container" class="m-0 p-0">
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Footer -->
+
+  <footer class="footer container ">
+    <div class="btn w-100 d-flex align-items-center justify-content-center mb-4">
+      <button
+        class="sign-in-for-more bg-warning text-black d-flex align-items-center justify-content-center py-2 fw-bold">Sign
+        in for more access</button>
+    </div>
+    <div class="w-100 d-flex align-items-center justify-content-center mb-5">
+      <div class=" horizontal-list fs-6 text-light fw-bold d-flex align-items-center justify-content-around">
+        <ul class="social-list d-flex align-items-center w-75 justify-content-around p-0 my-auto">
+          <li>
+            <i class="fa fa-snapchat"></i>
+          </li>
+          <li>
+            <i class="fa fa-instagram"></i>
+          </li>
+          <li>
+            <i class="fa fa-twitter"></i>
+          </li>
+          <li>
+            <i class="fa fa-youtube"></i>
+          </li>
+          <li>
+            <i class="fa fa-facebook"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="d-flex align-items-center justify-content-center w-100 mx-auto mb-4">
+      <div class=" horizontal-list fs-6 text-light fw-bold w-75 d-flex align-items-center justify-content-around">
+        <ul class="extra-list d-flex align-items-center w-100 justify-content-around p-0 my-auto">
+          <li>
+            Get the IMDb App
+          </li>
+          <li>
+            Help
+          </li>
+          <li>
+            Site Index
+          </li>
+          <li>
+            IMDBPro
+          </li>
+          <li>
+            Box Office Mojo
+          </li>
+          <li>
+            IMDb Developer
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="d-flex align-items-center justify-content-center w-100 mx-auto mb-4">
+      <div class=" horizontal-list fs-6 text-light fw-bold w-75 d-flex align-items-center justify-content-between">
+        <ul class="extra-list d-flex align-items-center w-100 justify-content-between p-0 my-auto">
+          <li>
+            Press Room
+          </li>
+          <li>
+            Advertising
+          </li>
+          <li>
+            Jobs
+          </li>
+          <li>
+            Conditions of Use
+          </li>
+          <li>
+            Privacy Policy
+          </li>
+          <li>
+            Your Ads Privacy Choices
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="btn w-100 d-flex align-items-center justify-content-center mb-4">
+      <div class="text-light">An <i class="fa fa-amazon"></i> Amazon Company</div>
+    </div>
+  </footer>
+  <!-- adding external script -->
+  <script src="/movie.js"></script>
+  <script src="/index.js"></script>
+  <!-- adding bootstrap sript src  -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

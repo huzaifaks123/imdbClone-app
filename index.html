@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- start of the head -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- importing CDN for font-awesome svg's and logos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <!-- integrating bootstrap framework inside project -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <!-- importing font styles as required -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- providing a title to our Project  -->
+  <title>IMDBClone</title>
+</head>
+
+<!-- start of the BODY -->
+
+<body>
+  <!-- creating elements of navbar here -->
+  <nav class="navbar p-0 mb-2 mx-auto">
+    <div class="container-fluid p-1 d-flex justify-content-center justify-content-around">
+      <!-- brand button -->
+      <div class="brand-button">
+        <a class="home-link" href="./index.html">
+          <button type="button" class="btn d-flex align-items-center bg-warning px-3 fs-4">IMDb</button>
+        </a>
+      </div>
+      <!-- menu button -->
+      <div class="menu">
+        <button type="button" class="btn d-flex align-items-center text-light px-3 fs-6"><i
+            class="fa fa-bars"></i><span>&nbsp&nbspMenu</span></button>
+      </div>
+      <!-- search bar -->
+      <div class="search-bar bg-light border d-flex pe-2 rounded-2 position-relative">
+        <div class="dropdown border-end border-secondary">
+          <!-- type dropdown -->
+          <button class="btn d-flex align-items-center dropdown-toggle" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            All
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">All</a></li>
+            <li><a class="dropdown-item" href="#">Title</a></li>
+            <li><a class="dropdown-item" href="#">Companies</a></li>
+            <li><a class="dropdown-item" href="#">TV Episodes</a></li>
+            <li><a class="dropdown-item" href="#">Celebs</a></li>
+            <li><a class="dropdown-item" href="#">Keywords</a></li>
+          </ul>
+        </div>
+        <!-- search input -->
+        <form class="d-flex w-100 search-form" role="search">
+          <input id="search-input" class="search-input form-control" type="search" placeholder="Search IMDb"
+            aria-label="Search">
+        </form>
+        <img class=" bg-light" src="./asset/search-img.svg" alt="find" width="20px">
+      </div>
+      <!-- brand button -->
+      <div class="brand-button ">
+        <button class="btn fs-5 d-flex align-items-center text-light">IMDb<span class="text-info">Pro</span></button>
+      </div>
+      <hr>
+      <div class="Watchlist text-light fs-6 d-flex align-items-center"><i class="fa fa-bookmark"></i>&nbsp&nbspWatchlist
+      </div>
+      <div class="sign-in text-light d-flex fs-6 align-items-center">Sign In</div>
+      <div class="dropdown">
+        <!-- dropdown button for language -->
+        <button class="btn btn-black d-flex align-items-center text-light fs-6 dropdown-toggle" type="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          EN
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">EN</a></li>
+          <li><a class="dropdown-item" href="#">HIN</a></li>
+          <li><a class="dropdown-item" href="#">FRE</a></li>
+          <li><a class="dropdown-item" href="#">DU</a></li>
+          <li><a class="dropdown-item" href="#">AR</a></li>
+          <li><a class="dropdown-item" href="#">CHI</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- element to show search resut -->
+    <div id="search-result" class="d-flex search-dropdown z-2 mx-auto position-absolute text-black">
+    </div>
+  </nav>
+
+  <!-- BELOW CODE FOR HERO SECTION , ASIDE COLUMN AND FOOTER ARE STATIC ELEMENTS JUST FOR VISUALISATION PURPOSE -->
+
+  <!-- Hero Section -->
+  <section class="hero-section sec-gap">
+    <div class="container">
+      <div class="row p-2">
+        <!-- hero photo container -->
+        <div class="hero-container position-relative col-md-8">
+          <div class="arrow hero-arrow-left">
+            <i class="fa fa-chevron-left text-light fs-3"></i>
+          </div>
+          <div class=" arrow hero-arrow-right">
+            <i class="fa fa-chevron-right text-light z-1 fs-3"></i>
+          </div>
+          <div class="hero-footer px-4">
+            <div class="hero-card">
+              <img src="./asset/hero-card.jpg" height="100%" alt="trending-movie">
+            </div>
+            <div class="content-card d-flex justify-content-around align-items-end h-75 ">
+              <div class="play-button my-auto">
+                <i class="fa fa-play fs-3 ms-1"></i>
+              </div>
+              <div class="hero-title fs-2 text-light w-75 lh-1 mt-auto">Shah Rukh Khan on 'Jawan,' His Legacy, Going
+                Bald, and More<br><span class="fs-5 ">Watch Our Exclusive Interview</span></div>
+              <div class="duration fs-4 text-light my-auto">2:55</div>
+            </div>
+          </div>
+          <img src="./asset/hero-background.jpg" width="100%" alt="trending-movie">
+        </div>
+        <div class="aside bg-black col-md-4 p-0">
+
+          <!-- Aside Column  -->
+
+
+          <div class="aside-heading fs-5 text-warning fw-bold">
+            Up Next
+          </div>
+          <div class="aside-elements d-flex flex-column">
+            <div class="element-container overflow-hidden m-2 d-flex">
+              <div class="element-card d-flex justify-content-around align-items-center overflow-hidden h-100 w-25 ">
+                <img src="./asset/aside1.jpg" height="100%" background="fill" alt="trending-movie">
+              </div>
+              <div class="element-content w-75">
+                <div class="button d-flex align-items-end">
+                  <div class="play-button my-auto mx-2">
+                    <i class="fa fa-play fs-5 ms-1"></i>
+                  </div>
+                  <div class="next-duration text-light">2:39</div>
+                </div>
+                <div class="content-detail fs-6 text-light px-2">
+                  Everything Everywhere All at Once
+                </div>
+                <span class="d-block text-truncate text-light text-nowrap px-2">A middle-aged Chinese immigrant is swept
+                  up into an insane adventure in which she alone can save existence by exploring other universes and
+                  connecting with the lives she could have led.</span>
+              </div>
+            </div>
+            <div class="element-container overflow-hidden  m-2 d-flex">
+              <div class="element-card d-flex justify-content-around align-items-center overflow-hidden h-100 w-25 ">
+                <img src="./asset/aside2.jpg" height="100%" alt="trending-movie">
+              </div>
+              <div class="element-content w-75">
+                <div class="button d-flex align-items-end">
+                  <div class="play-button my-auto mx-2">
+                    <i class="fa fa-play fs-5 ms-1"></i>
+                  </div>
+                  <div class="next-duration text-light">1:58</div>
+                </div>
+                <div class="content-detail fs-6 text-light px-2">
+                  The Batman
+                </div>
+                <span class="d-block text-truncate text-light text-nowrap px-2">When a sadistic serial killer begins
+                  murdering key political figures in Gotham, Batman is forced to investigate the city's hidden
+                  corruption and question his family's involvement.</span>
+              </div>
+            </div>
+            <div class="element-container overflow-hidden  m-2 d-flex">
+              <div class="element-card d-flex justify-content-around align-items-center overflow-hidden h-100 w-25 ">
+                <img src="./asset/aside3.jpg" height="100%" alt="trending-movie">
+              </div>
+              <div class="element-content w-75">
+                <div class="button d-flex align-items-end">
+                  <div class="play-button my-auto mx-2">
+                    <i class="fa fa-play fs-5 ms-1"></i>
+                  </div>
+                  <div class="next-duration text-light">1:46</div>
+                </div>
+                <div class="content-detail fs-6 text-light px-2">
+                  Mission: Impossible - Fallout
+                </div>
+                <span class="d-block text-truncate text-light text-nowrap px-2">Ethan Hunt and his IMF team, along with
+                  some familiar allies, race against time after a mission gone wrong.</span>
+              </div>
+            </div>
+          </div>
+          <div class="aside-heading fs-5 text-light fw-bold">
+            Browse Trailer >
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!--                       My Favourite                              -->
+  <section id="my-Favourite" class="my-Favourite column-6 container">
+    <!-- heading for favourite -->
+    <div class="second-heading fs-3 text-light fw-bold ms-4 mb-3">
+      My Favourite
+    </div>
+    <!-- elements to show favourite content here -->
+    <div class="row container d-flex flex-nowrap overflow-hidden sec-gap position-relative mx-1">
+      <div id="fav-container" class="m-0 p-0">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+
+  <footer class="footer container ">
+    <div class="btn w-100 d-flex align-items-center justify-content-center mb-4">
+      <button
+        class="sign-in-for-more bg-warning text-black d-flex align-items-center justify-content-center py-2 fw-bold">Sign
+        in for more access</button>
+    </div>
+    <div class="w-100 d-flex align-items-center justify-content-center mb-5">
+      <div class=" horizontal-list fs-6 text-light fw-bold d-flex align-items-center justify-content-around">
+        <ul class="social-list d-flex align-items-center w-75 justify-content-around p-0 my-auto">
+          <li>
+            <i class="fa fa-snapchat"></i>
+          </li>
+          <li>
+            <i class="fa fa-instagram"></i>
+          </li>
+          <li>
+            <i class="fa fa-twitter"></i>
+          </li>
+          <li>
+            <i class="fa fa-youtube"></i>
+          </li>
+          <li>
+            <i class="fa fa-facebook"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="d-flex align-items-center justify-content-center w-100 mx-auto mb-4">
+      <div class=" horizontal-list fs-6 text-light fw-bold w-75 d-flex align-items-center justify-content-around">
+        <ul class="extra-list d-flex align-items-center w-100 justify-content-around p-0 my-auto">
+          <li>
+            Get the IMDb App
+          </li>
+          <li>
+            Help
+          </li>
+          <li>
+            Site Index
+          </li>
+          <li>
+            IMDBPro
+          </li>
+          <li>
+            Box Office Mojo
+          </li>
+          <li>
+            IMDb Developer
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="d-flex align-items-center justify-content-center w-100 mx-auto mb-4">
+      <div class=" horizontal-list fs-6 text-light fw-bold w-75 d-flex align-items-center justify-content-between">
+        <ul class="extra-list d-flex align-items-center w-100 justify-content-between p-0 my-auto">
+          <li>
+            Press Room
+          </li>
+          <li>
+            Advertising
+          </li>
+          <li>
+            Jobs
+          </li>
+          <li>
+            Conditions of Use
+          </li>
+          <li>
+            Privacy Policy
+          </li>
+          <li>
+            Your Ads Privacy Choices
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="btn w-100 d-flex align-items-center justify-content-center mb-4">
+      <div class="text-light">An <i class="fa fa-amazon"></i> Amazon Company</div>
+    </div>
+  </footer>
+
+  <!-- adding external script -->
+  <script src="./index.js"></script>
+  <!-- adding bootstrap sript src  -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
